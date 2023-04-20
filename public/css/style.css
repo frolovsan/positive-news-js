@@ -1,21 +1,302 @@
+body {
+  font-family: 'Neucha', cursive;
+  font-size: 20px;
+}
+
 .container {
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* ! =====================[ NAVBAR ]===================== */
+
+li {
+  list-style-type: none;
+}
+
+nav {
+  background-color: white;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 90px;
+  border-bottom: solid 4px black;
+  z-index: 9999;
+}
+
+#right-nav {
+  margin-right: 10px;
+  width: 10%;
+  display: flex;
+  justify-content: space-around;
+}
+
+#left-nav {
+  width: 10%;
+}
+
+#center-nav {
+  display: flex;
+  margin-right: 20px;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+}
+
+.navbar-link {
+  text-decoration: none;
+  color: black;
+}
+
+.navbar-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-list-out {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-family: 'DynaPuff', cursive;
+  font-size: 40px;
+  height: 50px;
+}
+
+.logo:hover {
+  cursor: pointer;
+}
+
+/* ! =====================[ VISIT ]===================== */
+
+.visit-page {
+  text-align: center;
+  display: flex;
+  margin-top: 150px;
+  flex-direction: column;
+}
+
+.auth-check a {
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  font-size: 30px;
+  color: dodgerblue;
+  animation: jump 1s ease-in-out infinite;
+}
+
+@keyframes jump {
+  0% {
+    transform: translateY(0);
   }
-  @media (min-width: 768px) {
-    .container {
-      width: 750px;
-    }
+  50% {
+    transform: translateY(-5px);
   }
-  @media (min-width: 992px) {
-    .container {
-      width: 970px;
-    }
+  100% {
+    transform: translateY(0);
   }
-  @media (min-width: 1200px) {
-    .container {
-      width: 1170px;
-    }
+}
+
+.auth-check a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 3px;
+  background-color: dodgerblue;
+  transform: scaleX(0);
+  transition: transform 0.2s ease-in-out;
+}
+
+.auth-check a:hover::after {
+  transform: scaleX(1);
+}
+
+.auth-check a:hover {
+  animation-play-state: paused;
+}
+
+/* ! =====================[ FOOTER ]===================== */
+
+footer {
+  background-color: white;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-content {
+  margin-bottom: 10px;
+}
+
+/* ! =====================[ LOGIN ]===================== */
+
+.form-div {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 150px;
+}
+
+.login-form {
+
+  max-width: 400px;
+  border-radius: 10px;
+}
+
+input[type="email"],
+input[type="password"] {
+  font-family: 'Neucha', cursive;
+  font-weight: 600;
+  font-size: 18px;
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px;
+  border: solid 3px black;
+  border-radius: 5px;
+}
+
+input[type="email"]::placeholder,
+input[type="password"]::placeholder {
+  font-family: 'Neucha', cursive;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.log-btn {
+  margin-top: 20px;
+  font-size: 20px;
+  font-family: 'Neucha', cursive;
+  width: 110px;
+  height: 40px;
+  border: solid 3px black;
+  border-radius: 5px;
+}
+
+.log-btn:hover {
+  cursor: pointer;
+  background-color: black;
+  color: azure;
+  transition: 0.3s ease;
+}
+/* ! =====================[ NEWS ]===================== */
+
+#feed {
+  margin-top: 100px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.newsForm {
+  margin-top: 40px;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  align-items: center;
+}
+
+.newsForm input {
+  font-family: 'Neucha', cursive;
+  font-weight: 600;
+  font-size: 18px;
+  margin-top: 10px;
+  width: 100%;
+  padding: 8px;
+  border: solid 3px black;
+  border-radius: 5px;
+}
+
+.newsForm input ::placeholder {
+  font-size: 20px;
+}
+
+.newsForm button {
+  margin-top: 20px;
+  font-size: 20px;
+  font-family: 'Neucha', cursive;
+  width: 110px;
+  height: 40px;
+  border: solid 3px black;
+  border-radius: 5px;
+}
+
+.newsForm button:hover {
+  cursor: pointer;
+  background-color: black;
+  color: azure;
+  transition: 0.3s ease;
+}
+
+.news-container {
+  margin-top: 60px;
+  width: 1500px;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.oneNew {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  height: auto;
+  transition: transform 0.2s ease-in-out;
+}
+
+.oneNew:hover {
+  cursor: pointer;
+  transform: scale(1.04);
+}
+
+.oneNew img {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+}
+
+.oneNew p {
+  margin-top: 10px;
+}
+
+#title {
+  padding: auto;
+  font-weight: 400;
+  font-size: 28px;
+}
+
+/* ! =====================[ PROFILE ]===================== */
+
+.profile-container {
+  margin-top: 150px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
   }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
