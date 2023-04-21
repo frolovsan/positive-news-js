@@ -30,4 +30,16 @@ router.get('/', async (req, res) => {
   }
 });
 
+// new
+router.delete('/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    await Word.destroy({ where: { id } });
+    res.sendStatus(200);
+  } catch (error) {
+    console.log(error);
+    res.send(error);
+  }
+});
+
 module.exports = router;
