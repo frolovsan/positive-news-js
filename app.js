@@ -23,7 +23,6 @@ const checkAuth = require('./lib/checkAuth');
 
 // вызов функции проверки соединения с базоый данных
 dbCheck();
-
 const sessionConfig = {
   name: 'WhalesCookie',
   store: new FileStore(),
