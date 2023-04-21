@@ -19,6 +19,7 @@ const logoutRouter = require('./routes/logout.router');
 const regRouter = require('./routes/reg.router');
 const feedRouter = require('./routes/feed.router');
 const profileRouter = require('./routes/profile.router');
+const checkAuth = require('./lib/checkAuth');
 
 // вызов функции проверки соединения с базоый данных
 dbCheck();
@@ -47,8 +48,9 @@ app.use('/', mainRouter);
 app.use('/auth/reg', regRouter);
 app.use('/auth/in', loginRouter);
 app.use('/auth/out', logoutRouter);
-app.use('/feed', feedRouter);
+app.use('/feed', checkAuth, feedRouter);
 app.use('/profile', profileRouter);
+app.use('*', mainRouter);
 
 const PORT = process.env.PORT || 3100;
 app.listen(PORT, (err) => {
