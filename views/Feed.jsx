@@ -2,7 +2,9 @@ const React = require('react');
 const Layout = require('./Layout');
 const PopularWords = require('./PopularWords');
 
-function Feed({ title, userSession, newsArr }) {
+function Feed({
+  title, userSession, newsArr, newRes,
+}) {
   return (
     <Layout title={title} userSession={userSession}>
       <script defer src="" />
@@ -15,11 +17,11 @@ function Feed({ title, userSession, newsArr }) {
           <input type="text" name="badWord" placeholder="Исключаем" required />
           <button type="submit">Искать!</button>
         </form>
-        <PopularWords />
+        <PopularWords newRes={newRes} />
         {newsArr ? (
           <div className="news-container">
-            {newsArr.map((el) => (
-              <a href={el.url}>
+            {newsArr.map((el, i) => (
+              <a key={i} href={el.url}>
                 <div className="oneNew">
                   {el.urlToImage ? (
                     <div id="newsImg">

@@ -1,14 +1,15 @@
 const React = require('react');
 
-module.exports = function PopularWords() {
-  const popularWords = ['вакцина', 'коронавирус', 'спорт', 'технологии'];
+module.exports = function PopularWords({ newRes }) {
   return (
-    <select name="popularWords" id="popularWords">
-      {popularWords.map((word) => (
-        <option key={word.id} value={word}>
-          {word}
-        </option>
+    <ol className="popular" name="popularWords" id="popularWords">
+      <h3>Популярные запросы</h3>
+      {newRes?.map((word) => (
+        <li className="ol_list" key={word.id}>
+          {`${word.goodWord}-${word.badWord}`}
+          <span>{`${word.Users.length}`}</span>
+        </li>
       ))}
-    </select>
+    </ol>
   );
 };

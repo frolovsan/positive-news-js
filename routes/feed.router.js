@@ -6,20 +6,20 @@ const render = require('../lib/render');
 const { User, Word, UserWord } = require('../db/models');
 
 router.get('/', async (req, res) => {
-  const PopularWords = await Word.findAll({
-    raw: true,
-    attributes: [
-      'goodWord',
-      'badWord',
-      [Sequelize.fn('COUNT', Sequelize.col('goodWord')), 'count'],
+  const oneInc = await Word.findAll({
+    include: [
+      {
+        model: User,
+        through: {
+          model: UserWord,
+        },
+      },
     ],
-    group: ['goodWord', 'badWord'],
-    order: [[Sequelize.fn('COUNT', Sequelize.col('goodWord')), 'DESC']],
-    limit: 10,
   });
-  console.log(PopularWords);
 
-  render(Feed, {}, res, req);
+  const resMap = oneInc.map((item) => item.get({ plain: true }));
+  const newRes = resMap.sort((a, b) => b.Users.length - a.Users.length).slice(0, 5);
+  render(Feed, { newRes }, res, req);
 });
 
 router.post('/', async (req, res) => {
@@ -56,7 +56,22 @@ router.post('/', async (req, res) => {
     const newsArr = resArr.filter(
       (el) => !el.title.includes(badWord) && !el.description.includes(badWord),
     );
-    render(Feed, { newsArr }, res, req);
+
+    const oneInc = await Word.findAll({
+      include: [
+        {
+          model: User,
+          through: {
+            model: UserWord,
+          },
+        },
+      ],
+    });
+
+    const resMap = oneInc.map((item) => item.get({ plain: true }));
+    const newRes = resMap.sort((a, b) => b.Users.length - a.Users.length).slice(0, 5);
+
+    render(Feed, { newsArr, newRes }, res, req);
   } catch (error) {
     console.log(error);
     res.status(500).send('Ошибка в получении новостей');
