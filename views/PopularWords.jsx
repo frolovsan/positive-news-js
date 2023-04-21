@@ -1,6 +1,7 @@
 const React = require('react');
 
-module.exports = function PopularWords({ popularWords }) {
+module.exports = function PopularWords() {
+  const popularWords = ['вакцина', 'коронавирус', 'спорт', 'технологии'];
   return (
     <select name="popularWords" id="popularWords">
       {popularWords.map((word) => (

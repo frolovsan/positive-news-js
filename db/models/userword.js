@@ -1,5 +1,5 @@
-'use strict';
 const { Model } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   class UserWord extends Model {
     /**
@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       sequelize,
       modelName: 'UserWord',
-    }
+    },
   );
   return UserWord;
 };

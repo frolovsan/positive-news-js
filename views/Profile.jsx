@@ -7,7 +7,7 @@ function Profile({ userSession, userWordArr }) {
       <div className="profile-container">
         <span className="user-name">{`Слова пользователя ${userSession}:`}</span>
         <ul>
-          {userWordArr.map((el, i) => ( 
+          {userWordArr.map((el, i) => (
             <li key={i}>{`✔️ ${el.goodWord}  /  ❌ ${el.badWord}`}</li>
           ))}
         </ul>
