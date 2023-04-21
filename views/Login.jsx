@@ -1,9 +1,9 @@
 const React = require('react');
 const Layout = require('./Layout');
 
-module.exports = function UserLogin() {
+module.exports = function UserLogin({ title }) {
   return (
-    <Layout>
+    <Layout title={title}>
       <script defer src="/js/log.js" />
       <div className="form-div">
         <form name="logForm" className="login-form">
