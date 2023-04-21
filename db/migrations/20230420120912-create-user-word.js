@@ -1,8 +1,7 @@
-"use strict";
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("UserWords", {
+    await queryInterface.createTable('UserWords', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -12,20 +11,22 @@ module.exports = {
       userId: {
         references: {
           model: {
-            tableName: "Users",
+            tableName: 'Users',
           },
-          key: "id",
+          key: 'id',
         },
+        onDelete: 'CASCADE',
         allowNull: false,
         type: Sequelize.INTEGER,
       },
       wordId: {
         references: {
           model: {
-            tableName: "Words",
+            tableName: 'Words',
           },
-          key: "id",
+          key: 'id',
         },
+        onDelete: 'CASCADE',
         allowNull: false,
         type: Sequelize.INTEGER,
       },
@@ -42,6 +43,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("UserWords");
+    await queryInterface.dropTable('UserWords');
   },
 };

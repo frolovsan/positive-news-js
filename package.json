@@ -8,6 +8,10 @@
     "dev": "nodemon app.js --ignore session --ext js,jsx",
     "test": "jest"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frolovsan/positive-news-js"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",

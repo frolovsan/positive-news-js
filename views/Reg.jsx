@@ -1,9 +1,9 @@
 const React = require('react');
 const Layout = require('./Layout');
 
-module.exports = function Registration() {
+module.exports = function Registration({ title }) {
   return (
-    <Layout>
+    <Layout title={title}>
       <script defer src="/js/reg.js" />
       <div className="form-div">
         <form name="regForm" className="reg-form">

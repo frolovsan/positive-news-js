@@ -4,7 +4,7 @@ const PopularWords = require('./PopularWords');
 
 function Feed({ title, userSession, newsArr }) {
   return (
-    <Layout userSession={userSession}>
+    <Layout title={title} userSession={userSession}>
       <script defer src="" />
       <div>
         <h2>{title}</h2>
