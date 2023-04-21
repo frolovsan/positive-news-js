@@ -10,7 +10,7 @@ function Profile({ userSession, userWordArr }) {
           {userWordArr.map((el, i) => (
             <li key={i}>
               {`✔️ ${el.goodWord}  /  ❌ ${el.badWord}`}
-              <button className="delete" id={el.id}>Удалить</button>
+              <button className="delete btn" id={el.id}>Удалить</button>
             </li>
           ))}
         </ul>
