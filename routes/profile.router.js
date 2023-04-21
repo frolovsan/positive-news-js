@@ -22,8 +22,6 @@ router.get('/', async (req, res) => {
       item.get({ plain: true })
     );
 
-    // console.log(userWordArr);
-
     render(Profile, { userWordArr }, res, req);
   } catch (error) {
     console.log(error);

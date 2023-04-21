@@ -32,20 +32,6 @@ router.post('/', async (req, res) => {
       console.log('Связка слов не добавлена :(');
     }
 
-    const userWordAll = await Word.findAll({
-      include: [
-        {
-          model: User,
-          where: { id: req.session.userId },
-          through: {
-            model: UserWord,
-          },
-        },
-      ],
-    });
-
-    const userWordArr = await userWordAll.map((item) => item.get({ plain: true }));
-
     const response = await fetch(
       `https://newsapi.org/v2/everything?q=${goodWord}&apiKey=49b8b20864994002b0e9fe100ffcb7ad`
     );
