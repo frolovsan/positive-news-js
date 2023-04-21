@@ -15,7 +15,11 @@ module.exports = function Navbar({ userSession }) {
           <div id="center-nav">
             <li className="navbar-item">
               <a className="navbar-link" href="/feed">
-                <span className="logo">Positive News</span>
+                <span className="logo">
+                  <img id="first" src="/images/rainbow.svg" alt="rainbow" />
+                  Positive News
+                  <img id="second" src="/images/rainbow.svg" alt="rainbow" />
+                </span>
               </a>
             </li>
           </div>
@@ -37,7 +41,11 @@ module.exports = function Navbar({ userSession }) {
           <div id="center-nav">
             <li className="navbar-item">
               <a className="navbar-link" href="/">
-                <span className="logo">Positive News</span>
+                <span className="logo">
+                  <img id="first" src="/images/rainbow.svg" alt="rainbow" />
+                  Positive News
+                  <img id="second" src="/images/rainbow.svg" alt="rainbow" />
+                </span>
               </a>
             </li>
           </div>

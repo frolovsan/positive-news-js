@@ -17,18 +17,23 @@ function Feed({ title, userSession, newsArr }) {
         {newsArr ? (
           <div className="news-container">
             {newsArr.map((el) => (
-              <div className="oneNew">
-                {el.urlToImage ? (
-                  <div id="newsImg">
-                    <img src={`${el.urlToImage}`} alt="newsImg" />
-                  </div>
-                ) : (
-                  <div id="newsImg">
-                    <img src="https://media.istockphoto.com/id/520294182/photo/good-news.jpg?s=612x612&w=0&k=20&c=3FqloSYuw0mGBg91v6WrLk0zIX-7HgFmjyjfEWbCYbU=" alt="newsImg" />
-                  </div>
-                )}
-                <p id="title">{el.title}</p>
-              </div>
+              <a href={el.url}>
+                <div className="oneNew">
+                  {el.urlToImage ? (
+                    <div id="newsImg">
+                      <img src={`${el.urlToImage}`} alt="newsImg" />
+                    </div>
+                  ) : (
+                    <div id="newsImg">
+                      <img
+                        src="https://media.istockphoto.com/id/520294182/photo/good-news.jpg?s=612x612&w=0&k=20&c=3FqloSYuw0mGBg91v6WrLk0zIX-7HgFmjyjfEWbCYbU="
+                        alt="newsImg"
+                      />
+                    </div>
+                  )}
+                  <p id="title">{el.title}</p>
+                </div>
+              </a>
             ))}
           </div>
         ) : (
