@@ -11,7 +11,6 @@ function Profile({ userSession, userWordArr }) {
             <li key={i}>
               {`✔️ ${el.goodWord}  /  ❌ ${el.badWord}`}
               <button className="delete" id={el.id}>Удалить</button>
-
             </li>
           ))}
         </ul>
