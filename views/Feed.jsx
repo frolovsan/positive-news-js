@@ -1,5 +1,6 @@
 const React = require('react');
 const Layout = require('./Layout');
+const PopularWords = require('./PopularWords');
 
 function Feed({ title, userSession, newsArr }) {
   return (
@@ -14,6 +15,7 @@ function Feed({ title, userSession, newsArr }) {
           <input type="text" name="badWord" placeholder="Исключаем" required />
           <button type="submit">Искать!</button>
         </form>
+        <PopularWords />
         {newsArr ? (
           <div className="news-container">
             {newsArr.map((el) => (
